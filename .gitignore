@@ -1,0 +1,38 @@
+ 
+dfs/
+config/.minio/
+
+.DS_Store
+*.pyc
+
+### Idea ###
+.idea/
+.idea_modules/
+*.iws
+*.iml
+*.ipr
+**___jb_tmp___
+cmake-build-*/
+
+### VS Code ###
+
+.vscode/
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Persistent undo
+[._]*.un~
+
+# End of https://www.gitignore.io/api/vim,node,python,intellij+all
