@@ -1,7 +1,18 @@
 version: '3.2'
 
 services:
-    
+  api:
+    env_file:
+      - ./config/.env
+    build:
+        context: ./server/api
+        dockerfile: Dockerfile
+    ports: 
+        - 2020:2020
+    networks:
+        - backend
+    command: "python3 /api/app.py"
+
   redis:
     env_file:
       - ./config/.env

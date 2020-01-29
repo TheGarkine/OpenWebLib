@@ -1,0 +1,7 @@
+flask
+flask-graphql
+graphene-file-upload
+graphene
+graphene-sqlalchemy
+flask_sqlalchemy
+sqlalchemy
