@@ -11,7 +11,9 @@ class CreateDocument(graphene.Mutation):
     document = graphene.Field(lambda: Document)
 
     def mutate(root, info, title):
-        document = db_types.Document(title=title)
+        biblatex = db_types.Biblatex()
+        db_types.db.session.add(biblatex)
+        document = db_types.Document(title=title,biblatex=biblatex)
         db_types.db.session.add(document)
         db_types.db.session.commit()
         return CreateDocument(document=document,ok=True)
