@@ -5,8 +5,12 @@ from graphene_sqlalchemy import SQLAlchemyObjectType
 class Document(SQLAlchemyObjectType):
     class Meta:
         model = db_types.Document
-        description = "This is a document"
+        description = "A document"
 
+class Biblatex(SQLAlchemyObjectType):
+    class Meta:
+        model = db_types.Biblatex
+        description = "Biblatex information for a document"
 
 class RootQuery(graphene.ObjectType):
     class Meta:
@@ -14,6 +18,7 @@ class RootQuery(graphene.ObjectType):
     hello = graphene.String(description="A typical Hello World!")
 
     documents = graphene.List(Document)
+    biblatex = graphene.List(Biblatex)
 
     def resolve_hello(self,info):
         print(info)
