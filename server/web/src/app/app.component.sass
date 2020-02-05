@@ -1,0 +1,65 @@
+#sidebar-wrapper
+  min-height: 100vh
+  margin-left: 0
+  transition: margin .25s ease-out
+
+  .sidebar-heading
+    padding: 0.875rem 1.25rem
+    font-size: 1.2rem
+
+  .list-group
+    width: 15rem
+
+  #page-content-wrapper
+    min-width: 100vw
+
+#wrapper.toggled #sidebar-wrapper
+  margin-left: -15rem
+
+#page-content-wrapper
+  min-width: 0
+  width: 100%
+
+
+.navbar
+  padding: 50px 0 30px 0
+
+  .navbar-brand
+    padding: 0 15px
+
+  .btn-left-sidebar
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    border-left: none
+    margin-left: -1px
+
+    &:focus
+      box-shadow: none
+
+
+.search-bar
+  margin: 0 50px
+
+  .input-group-text
+    z-index: 4
+    position: relative
+    margin-right: -45px
+
+    padding-left: 15px
+
+    border: none
+
+    background: none
+    color: gray
+
+  .form-control
+    padding: 10px 15px 10px 40px
+    border-radius: 50px
+
+    &:focus
+      box-shadow: none
+
+
+@media (min-width: 768px)
+  .search-bar
+    margin: 0 100px

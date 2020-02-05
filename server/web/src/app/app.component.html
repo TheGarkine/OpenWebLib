@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right border-secondary" id="sidebar-wrapper">
+      <div class="sidebar-heading">Navigation</div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light"><fa-icon [icon]="faHome"></fa-icon>&nbsp;&nbsp;Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light"><fa-icon [icon]="faStar"></fa-icon>&nbsp;&nbsp;Favorites</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="btn btn-outline-secondary btn-left-sidebar" type="button" (click)="toggleSidebar()">
+          <fa-icon [icon]="faBars"></fa-icon>
+        </button>
+        <a class="navbar-brand" href="#">OWL</a>
+        <div class="input-group search-bar">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><fa-icon [icon]="faSearch"></fa-icon></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Search library ..." />
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <h1>
+          Welcome to {{ title }}!
+        </h1>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+</div>
+
+<router-outlet></router-outlet>
