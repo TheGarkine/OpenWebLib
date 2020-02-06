@@ -2,24 +2,22 @@ import { Observable } from 'graphql-typed-client'
 
 /** My description */
 export interface RootQuery {
-  /** A typical Hello World! */
-  hello: String | null
   allDocuments: (Document | null)[] | null
   biblatex: (Biblatex | null)[] | null
   __typename: 'RootQuery'
 }
 
-/** The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text. */
-export type String = string
-
 /** A document */
 export interface Document {
   uuid: String
-  title: String | null
+  pages: Int | null
   biblatexId: Int | null
   biblatex: Biblatex | null
   __typename: 'Document'
 }
+
+/** The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text. */
+export type String = string
 
 /** The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. */
 export type Int = number
@@ -109,8 +107,6 @@ export type Boolean = boolean
 
 /** My description */
 export interface RootQueryRequest {
-  /** A typical Hello World! */
-  hello?: boolean | number
   allDocuments?: DocumentRequest
   biblatex?: BiblatexRequest
   __typename?: boolean | number
@@ -120,7 +116,7 @@ export interface RootQueryRequest {
 /** A document */
 export interface DocumentRequest {
   uuid?: boolean | number
-  title?: boolean | number
+  pages?: boolean | number
   biblatexId?: boolean | number
   biblatex?: BiblatexRequest
   __typename?: boolean | number
@@ -250,8 +246,6 @@ export const isCreateDocument = (obj: { __typename: String }): obj is CreateDocu
 
 /** My description */
 export interface RootQueryPromiseChain {
-  /** A typical Hello World! */
-  hello: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
   allDocuments: {
     execute: (request: DocumentRequest, defaultValue?: (Document | null)[] | null) => Promise<(Document | null)[] | null>
   }
@@ -262,8 +256,6 @@ export interface RootQueryPromiseChain {
 
 /** My description */
 export interface RootQueryObservableChain {
-  /** A typical Hello World! */
-  hello: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
   allDocuments: {
     execute: (request: DocumentRequest, defaultValue?: (Document | null)[] | null) => Observable<(Document | null)[] | null>
   }
@@ -275,7 +267,7 @@ export interface RootQueryObservableChain {
 /** A document */
 export interface DocumentPromiseChain {
   uuid: { execute: (request?: boolean | number, defaultValue?: String) => Promise<String> }
-  title: { execute: (request?: boolean | number, defaultValue?: String | null) => Promise<String | null> }
+  pages: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   biblatexId: { execute: (request?: boolean | number, defaultValue?: Int | null) => Promise<Int | null> }
   biblatex: BiblatexPromiseChain & {
     execute: (request: BiblatexRequest, defaultValue?: Biblatex | null) => Promise<Biblatex | null>
@@ -285,7 +277,7 @@ export interface DocumentPromiseChain {
 /** A document */
 export interface DocumentObservableChain {
   uuid: { execute: (request?: boolean | number, defaultValue?: String) => Observable<String> }
-  title: { execute: (request?: boolean | number, defaultValue?: String | null) => Observable<String | null> }
+  pages: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   biblatexId: { execute: (request?: boolean | number, defaultValue?: Int | null) => Observable<Int | null> }
   biblatex: BiblatexObservableChain & {
     execute: (request: BiblatexRequest, defaultValue?: Biblatex | null) => Observable<Biblatex | null>
