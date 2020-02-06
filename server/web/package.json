@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -46,6 +46,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~13.5.2",
     "codelyzer": "^5.0.1",
+    "graphql-typed-client": "^1.7.4",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",

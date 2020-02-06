@@ -1,0 +1,110 @@
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+"""
+Biblatex information for a document
+"""
+type Biblatex {
+  uuid: String
+  key: String
+  author: String
+  bookauthor: String
+  editor: String
+  afterword: String
+  annotator: String
+  commentator: String
+  forward: String
+  introduction: String
+  tranlsator: String
+  holder: String
+  institution: String
+  organization: String
+  publisher: String
+  title: String
+  indextitle: String
+  booktitle: String
+  maintitle: String
+  journaltitle: String
+  issuetitle: String
+  eventtitle: String
+  reprinttitle: String
+  series: String
+  volume: String
+  number: String
+  part: String
+  issue: String
+  volumes: String
+  edition: String
+  version: String
+  pubstate: String
+  pages: String
+  pagetotal: String
+  pagination: String
+  date: String
+  eventdate: String
+  urldate: String
+  location: String
+  venue: String
+  url: String
+  doi: String
+  eid: String
+  eprint: String
+  eprinttype: String
+  type: String
+  entrysubtype: String
+  addendum: String
+  note: String
+  howpublished: String
+  language: String
+  isan: String
+  isbn: String
+  ismn: String
+  isrn: String
+  issn: String
+  iswc: String
+  abstract: String
+  annotation: String
+  file: String
+  library: String
+  label: String
+  shorthand: String
+  shorthandintro: String
+}
+
+type CreateDocument {
+  ok: Boolean
+  document: Document
+}
+
+"""
+A document
+"""
+type Document {
+  uuid: String!
+  title: String
+  biblatexId: Int
+  biblatex: Biblatex
+}
+
+type RootMutation {
+  createDocument(
+    """
+    Document title
+    """
+    title: String
+  ): CreateDocument
+}
+
+"""
+My description
+"""
+type RootQuery {
+  """
+  A typical Hello World!
+  """
+  hello: String
+  allDocuments: [Document]
+  biblatex: [Biblatex]
+}
