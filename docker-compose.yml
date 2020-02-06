@@ -5,13 +5,17 @@ services:
     env_file:
       - ./config/.env
     build:
-        context: ./server/api
-        dockerfile: Dockerfile
+        context: server/
+        dockerfile: api/Dockerfile
     ports: 
         - 2020:2020
     networks:
         - backend
-    command: "python3 /api/app.py"
+        - frontend
+    command: "/bin/sh /tools/wait-for.sh db:3306 -- \
+              /bin/sh /tools/wait-for.sh minio:9000 -- \
+              /bin/sh /tools/wait-for.sh redis:6379 -- \
+              python3 /api/app.py"
 
   redis:
     env_file:
@@ -47,7 +51,7 @@ services:
     command:
       - --interactive_timeout=28800
     networks:
-      - frontend
+      - backend
     restart: always
 
   proxy:
@@ -61,7 +65,7 @@ services:
     restart: always
     depends_on:
        - lam
-    #  - api
+       - api
     #  - web
 
   ldap:
@@ -79,8 +83,9 @@ services:
         - ./config/.env
     image: ldapaccountmanager/lam:7.0
     ports: 
-        - 80:80
+        - 3030:80
     networks:
+        - frontend
         - backend
     restart: always
 
