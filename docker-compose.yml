@@ -73,9 +73,12 @@ services:
         - ./config/.env
     image: osixia/openldap:1.3.0
     ports:
-        - 389:636
+      - 389:389
     networks:
-        - backend
+        backend:
+          aliases:
+            - ldap
+            - ldap.openweblib.com
     restart: always
 
   lam:
@@ -88,7 +91,17 @@ services:
         - frontend
         - backend
     restart: always
-
+  
+  auth-proxy:
+    env_file:
+      - ./config/.env
+    build:
+      context: server/nginx-ldap-auth
+      dockerfile: Dockerfile
+    networks:
+        - frontend
+        - backend
+    
 
 networks:
   frontend:
