@@ -19,7 +19,7 @@ export class AppComponent {
   toggleSidebar() {
     document.getElementById('wrapper').classList.toggle('toggled');
   }
-  
+
   constructor() {
     const client = createClient({
       fetcher: ({ query, variables }, fetch, qs) =>
@@ -36,7 +36,9 @@ export class AppComponent {
 
     client.query({
       allDocuments: {
-        title: 1
+        biblatex: {
+          title: 1
+        }
       }
     }).then(r => console.log(r))
     .catch(e => console.log(e))

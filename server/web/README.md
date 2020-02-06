@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Generate GraphQL Client
 
-`"./node_modules/.bin/generate-graphql-client" -o src/client -e http://localhost:2020/graphql`
+`"./node_modules/.bin/generate-graphql-client" -o src/client -e http://localhost:8080/graphql`
 
 ## Code scaffolding
 

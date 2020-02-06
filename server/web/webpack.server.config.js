@@ -9,8 +9,12 @@ module.exports = {
     // This is our Express server for Dynamic universal
     server: './server.ts'
   },
+  externals: [require('webpack-node-externals')()],
   target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: {
+    // .mjs needed for https://github.com/graphql/graphql-js/issues/1272
+    extensions: ['*', '.mjs', '.js', '.vue', '.json', '.gql', '.graphql']
+  },
   optimization: {
     minimize: false
   },
@@ -28,6 +32,12 @@ module.exports = {
         test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
         parser: { system: true },
       },
+      {
+        // fixes https://github.com/graphql/graphql-js/issues/1272
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      }
     ]
   },
   plugins: [

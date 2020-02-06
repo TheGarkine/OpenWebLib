@@ -17,6 +17,14 @@ services:
               /bin/sh /tools/wait-for.sh redis:6379 -- \
               python3 /api/app.py"
 
+  web:
+    build: ./server/web
+    networks:
+      - frontend
+    restart: always
+    depends_on:
+      - api
+
   redis:
     env_file:
       - ./config/.env

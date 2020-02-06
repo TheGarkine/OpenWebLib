@@ -83,7 +83,7 @@ A document
 """
 type Document {
   uuid: String!
-  title: String
+  pages: Int
   biblatexId: Int
   biblatex: Biblatex
 }
@@ -101,10 +101,6 @@ type RootMutation {
 My description
 """
 type RootQuery {
-  """
-  A typical Hello World!
-  """
-  hello: String
   allDocuments: [Document]
   biblatex: [Biblatex]
 }
