@@ -17,14 +17,9 @@ class Biblatex(SQLAlchemyObjectType):
 class RootQuery(graphene.ObjectType):
     class Meta:
         description = "My description"
-    hello = graphene.String(description="A typical Hello World!")
 
     all_documents = graphene.List(Document)
     biblatex = graphene.List(Biblatex)
-
-    def resolve_hello(self,info):
-        print(info)
-        return 'World'
 
     def resolve_all_documents(self,info):
         return Document.get_query(info).all()

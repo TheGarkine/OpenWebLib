@@ -12,7 +12,8 @@ class Biblatex(db.Model):
     author = db.Column(db.String)
     bookauthor = db.Column(db.String)
     editor = db.Column(db.String)
-    #editora/b/c TODO
+
+    #editor a/b/c TODO
     afterword = db.Column(db.String)
     annotator = db.Column(db.String)
     commentator = db.Column(db.String)
