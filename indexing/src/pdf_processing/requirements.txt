@@ -1,0 +1,7 @@
+redis
+pypdf2
+lxml
+pytesseract
+pdf2image
+minio
+langdetect
