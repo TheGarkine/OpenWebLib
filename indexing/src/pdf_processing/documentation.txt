@@ -1,4 +1,6 @@
 In order to run the python parser properly, it is necessary to download the German language set for the tesseract.
 
-Download the Tesseract: sudo apt-get install tesseract-ocr-deu
+Download the German Tesseract: sudo apt-get install tesseract-ocr-deu
+Download the English Tesseract: sudo apt-get install tesseract-ocr-eng
+
 
