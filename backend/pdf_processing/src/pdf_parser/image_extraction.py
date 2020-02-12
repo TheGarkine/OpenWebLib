@@ -1,6 +1,7 @@
 import sys
 import PyPDF2
 from pdf2image import convert_from_path
+
 # pdf2image Dokumentation: https://pdf2image.readthedocs.io/en/latest/reference.html
 
 def save_title_page(file_path, save_name, save_path):
@@ -9,7 +10,8 @@ def save_title_page(file_path, save_name, save_path):
 
 
 def extract_images_from_pdf(file_path, save_path, filename):
-    pdf_reader = PyPDF2.PdfFileReader(open(file_path, 'rb')) # Dokumentation: https://pythonhosted.org/PyPDF2/PdfFileReader.html
+    file_stream = open(file_path, 'rb')
+    pdf_reader = PyPDF2.PdfFileReader(file_stream) # Dokumentation: https://pythonhosted.org/PyPDF2/PdfFileReader.html    
 
     i = 0
     for j in range(pdf_reader.getNumPages()):
@@ -24,4 +26,5 @@ def extract_images_from_pdf(file_path, save_path, filename):
                         img = open("{}".format(save_path + "/" + filename + "_image_" + str(i)) + ".jpg", "wb")
                         img.write(data)
                         img.close()
-                        i += 1 
+                        i += 1
+    file_stream.close()

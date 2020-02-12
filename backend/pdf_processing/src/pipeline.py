@@ -25,7 +25,7 @@ if __name__ == "__main__":
     relative_path = sys.argv[1]
     filename = sys.argv[2]
     ending = sys.argv[3]
-    directory = "/home/dino/Desktop/cloned_repositories/OpenWebLib/indexing/testarea/" + filename
+    directory = "/home/dino/Desktop/OpenWebLib/backend/pdf_processing/test/testarea/" + filename
     file_path = relative_path + filename + "." + ending
 
     # Step 1 Connect to Redis queue
