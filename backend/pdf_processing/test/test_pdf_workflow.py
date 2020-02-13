@@ -1,0 +1,1 @@
+#TODO: Test how the process reacts to files which are not PDFs
